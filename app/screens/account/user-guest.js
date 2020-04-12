@@ -9,7 +9,7 @@ function UserGuest(props) {
   return (
     <ScrollView style={styles.view} centerContent={true}>
       <Image
-        source={require("src/app/components/images/original.jpg")}
+        source={require("src/assets/images/original.jpg")}
         style={styles.image}
         resizeMode="contain"
       />

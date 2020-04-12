@@ -12,7 +12,7 @@ function Register(props) {
   return (
     <KeyboardAwareScrollView>
       <Image
-        source={require("src/app/components/images/login.png")}
+        source={require("src/assets/images/login.png")}
         style={styles.logo}
         resizeMode="contain"
       />

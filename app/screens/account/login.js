@@ -13,7 +13,7 @@ function Login(props) {
   return (
     <ScrollView>
       <Image
-        source={require("src/app/components/images/login.png")}
+        source={require("src/assets/images/login.png")}
         style={styles.logo}
         resizeMode="contain"
       />
