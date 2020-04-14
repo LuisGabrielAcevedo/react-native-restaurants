@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { Input, Button, Icon } from "react-native-elements";
-import { validateEmail } from "../../utils/validators";
+import { validateEmail } from "src/app/utils/validators";
 import * as firebase from "firebase";
 import Loading from "src/app/components/loading";
 

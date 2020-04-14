@@ -3,7 +3,7 @@ import { StyleSheet, View } from "react-native";
 import { Input, Button, Icon } from "react-native-elements";
 import Loading from "src/app/components/loading";
 import * as firebase from "firebase";
-import { validateEmail } from "../../utils/validators";
+import { validateEmail } from "src/app/utils/validators";
 
 function LoginForm(props) {
   const { toastRef, navigation } = props;
@@ -36,7 +36,6 @@ function LoginForm(props) {
       <Input
         placeholder="Correo electrónico"
         containerStyle={styles.input}
-        value={email}
         onChange={(e) => setEmail(e.nativeEvent.text)}
         rightIcon={
           <Icon
@@ -51,7 +50,6 @@ function LoginForm(props) {
         placeholder="Contraseña"
         containerStyle={styles.input}
         password={true}
-        value={password}
         secureTextEntry={hidePassword} //Contraseña con puntos
         onChange={(e) => setPassword(e.nativeEvent.text)}
         rightIcon={
