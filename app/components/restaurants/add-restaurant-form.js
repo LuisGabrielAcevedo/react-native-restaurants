@@ -17,10 +17,18 @@ const widthSreen = Dimensions.get("window").width;
 export default function AddRestaurantForm(props) {
   const { navigation, toastRef, setLoading } = props;
   const [imagesSelected, setImagesSelected] = useState([]);
+  const [name, setName] = useState("");
+  const [address, setAddress] = useState("");
+  const [description, setDescription] = useState("");
 
   return (
     <ScrollView>
-      <ImageRestaurant />
+      <ImageRestaurant image={imagesSelected[0]} />
+      <Form
+        setName={setName}
+        setAddress={setAddress}
+        setDescription={setDescription}
+      />
       <UploadImage
         imagesSelected={imagesSelected}
         setImagesSelected={setImagesSelected}
@@ -124,6 +132,37 @@ function UploadImage(props) {
   );
 }
 
+function Form(props) {
+  const { setName, setAddress, setDescription } = props;
+  return (
+    <View style={styles.form}>
+      <Input
+        placeholder="Nombre"
+        containerStyle={styles.input}
+        onChange={(e) => setName(e.nativeEvent.text)}
+      />
+      <Input
+        placeholder="Dirección"
+        containerStyle={styles.input}
+        onChange={(e) => setAddress(e.nativeEvent.text)}
+        rightIcon={{
+          type: "material-community",
+          size: 22,
+          name: "google-maps",
+          color: "#c2c2c2",
+          onPress: () => console.log("Select"),
+        }}
+      />
+      <Input
+        placeholder="Descripción"
+        inputContainerStyle={styles.textarea}
+        multiline={true}
+        onChange={(e) => setDescription(e.nativeEvent.text)}
+      />
+    </View>
+  );
+}
+
 const styles = StyleSheet.create({
   view: {},
   viewImage: {
@@ -153,5 +192,19 @@ const styles = StyleSheet.create({
   mainPhoto: {
     width: widthSreen,
     height: 200,
+  },
+  form: {
+    marginLeft: 10,
+    marginRight: 10,
+  },
+  input: {
+    width: "100%",
+    marginTop: 20,
+  },
+  textarea: {
+    height: 100,
+    width: "100%",
+    padding: 0,
+    margin: 0,
   },
 });
